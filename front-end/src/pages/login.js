@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import {Form, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
+import {login} from '../users/userAction'
 
 
 function Login(location, history) {
@@ -23,7 +24,7 @@ function Login(location, history) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispath(email, password);
+    dispath(login(email, password));
   };
   return (
     <>
@@ -43,6 +44,13 @@ function Login(location, history) {
             Sign In
         </Button>
       </Form>
+      <Row >
+        <Col>
+            <Link to={redirect ? `/register ? redirect =${redirect}` : '/register'}>
+                Register
+            </Link>
+        </Col>
+      </Row>
     </>
   );
 }
